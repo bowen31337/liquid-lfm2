@@ -1,0 +1,770 @@
+<html lang="en" class="scroll-smooth">
+
+<head>
+    ...
+    .gradient-text {
+    background: linear-gradient(to right, #a78bfa, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+    ...
+</head>
+
+<body class="antialiased selection:bg-liquid-600 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-header transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#" class="flex items-center gap-2 group">
+                    <span
+                        class="material-symbols-outlined text-liquid-400 group-hover:rotate-180 transition-transform duration-700">water_drop</span>
+                    <span class="font-bold text-xl tracking-tight">Liquid <span
+                            class="text-liquid-400">LFM2</span></span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6">
+                        <a href="#overview" class="nav-link text-sm font-medium">Overview</a>
+                        <a href="#architecture" class="nav-link text-sm font-medium">Architecture</a>
+                        <a href="#performance" class="nav-link text-sm font-medium">Performance</a>
+                        <a href="#family" class="nav-link text-sm font-medium active text-white">Models</a>
+                        <a href="#training" class="nav-link text-sm font-medium">Training</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button placeholder (icon only) -->
+                <div class="md:hidden">
+                    <span class="material-symbols-outlined text-gray-400">menu</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="pt-24 pb-12 px-4 max-w-7xl mx-auto space-y-32">
+
+        <!-- SECTION: OVERVIEW -->
+        <section id="overview" class="scroll-mt-32">
+            <div
+                class="relative rounded-3xl overflow-hidden mb-12 border border-liquid-800 shadow-2xl shadow-liquid-900/50 group">
+                <div class="absolute inset-0 bg-gradient-to-r from-liquid-950 via-liquid-950/80 to-transparent z-10">
+                </div>
+                <!-- Hero Image -->
+                <img alt="LFM2 Abstract"
+                    class="w-full h-[500px] object-cover opacity-60 transition-transform duration-1000 group-hover:scale-105"
+                    src="assets/hero_background.png">
+
+                <div class="absolute inset-0 z-20 flex flex-col justify-center px-8 md:px-16 lg:w-2/3">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-liquid-600/30 border border-liquid-400/30 w-fit mb-6 backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        <span class="text-xs font-mono text-liquid-100 tracking-wider">RELEASED DEC 2025</span>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+                        LFM2: The Edge-First <br>
+                        <span class="gradient-text">Liquid Foundation Model</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">
+                        A new family of models (350M - 8B) co-designed for maximum quality and efficiency on edge
+                        devices.
+                        Featuring a minimal hybrid backbone that outperforms Llama 3.2 and Qwen 2.5 on mobile CPUs.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#architecture"
+                            class="px-8 py-4 bg-liquid-600 hover:bg-liquid-500 text-white rounded-xl font-semibold transition-all shadow-[0_0_30px_rgba(124,58,237,0.4)] flex items-center gap-2 hover:-translate-y-1">
+                            Explore Architecture <span class="material-symbols-outlined text-sm">arrow_downward</span>
+                        </a>
+                        <a href="#family"
+                            class="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-xl font-semibold transition-all hover:-translate-y-1">
+                            View Models
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Highlights Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-panel p-6 rounded-2xl hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-4xl text-accent-cyan mb-4">memory</span>
+                    <h3 class="text-xl font-bold text-white mb-2">Hardware-Aware</h3>
+                    <p class="text-sm text-gray-400">Architecture search optimized directly for mobile/laptop CPU
+                        latency and memory, not just theoretical FLOPs.</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-4xl text-accent-pink mb-4">hub</span>
+                    <h3 class="text-xl font-bold text-white mb-2">Hybrid Backbone</h3>
+                    <p class="text-sm text-gray-400">Combines efficient <strong>Gated Short Convolutions</strong> for
+                        local processing with minimal <strong>Grouped Query Attention</strong>.</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-4xl text-green-400 mb-4">speed</span>
+                    <h3 class="text-xl font-bold text-white mb-2">2x Faster</h3>
+                    <p class="text-sm text-gray-400">Delivers up to 2x faster prefill and decode speeds on edge devices
+                        compared to similarly sized models.</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-4xl text-orange-400 mb-4">view_in_ar</span>
+                    <h3 class="text-xl font-bold text-white mb-2">Native Multimodal</h3>
+                    <p class="text-sm text-gray-400">Includes specialized variants for Vision (LFM2-VL), Audio
+                        (LFM2-Audio), and Retrieval (ColBERT).</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-white/5">
+
+        <!-- SECTION: ARCHITECTURE -->
+        <section id="architecture" class="scroll-mt-32">
+            <div class="flex flex-col lg:flex-row gap-12 items-start">
+                <!-- Interactive Text -->
+                <div class="lg:w-1/3 space-y-8 sticky top-32">
+                    <div>
+                        <div
+                            class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-liquid-400 uppercase bg-liquid-900/30 rounded-full border border-liquid-800">
+                            The Technology</div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Minimal Hybrid Backbone</h2>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Traditional Transformers scale poorly on edge devices due to KV-cache memory usage. Pure
+                            SSMs (like Mamba) struggle with retrieval.
+                            LFM2 finds the "Goldilocks" zone via hardware-in-the-loop search.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-xl border-l-4 transition-all duration-300 border-liquid-500"
+                        id="arch-details">
+                        <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                            <span class="material-symbols-outlined animate-bounce">touch_app</span>
+                            <span id="detail-title">Hover over the diagram</span>
+                        </h3>
+                        <p class="text-sm text-gray-400" id="detail-text">Interact with the visual blocks on the right
+                            to understand how LFM2 processes data.</p>
+                    </div>
+
+                    <div
+                        class="bg-black/60 p-5 rounded-xl font-mono text-xs text-green-400 overflow-x-auto border border-white/5 shadow-inner">
+                        <p class="mb-2 text-gray-500">// Pseudocode Structure</p>
+                        <p><span class="text-liquid-400">class</span> <span
+                                class="text-yellow-300">LFM2Block</span>(nn.Module):</p>
+                        <div class="pl-4 border-l border-gray-700 ml-1 mt-1">
+                            <p><span class="text-accent-pink">if</span> layer_type == <span
+                                    class="text-cyan-300">'local'</span>:</p>
+                            <p class="pl-4 text-gray-300">return <span
+                                    class="text-white font-bold">GatedShortConv</span>(x)</p>
+                            <p><span class="text-accent-pink">else if</span> layer_type == <span
+                                    class="text-cyan-300">'global'</span>:</p>
+                            <p class="pl-4 text-gray-300">return <span
+                                    class="text-white font-bold">GroupedQueryAttention</span>(x)</p>
+                            <p class="mt-2 text-gray-300">return <span class="text-white font-bold">SwiGLU_MLP</span>(x)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Diagram -->
+                <div class="lg:w-2/3 w-full">
+                    <div
+                        class="glass-panel p-8 md:p-12 rounded-3xl relative min-h-[700px] flex flex-col items-center justify-center bg-gradient-to-b from-black/40 to-liquid-950/20 border border-white/10">
+
+                        <!-- Input -->
+                        <div
+                            class="w-48 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-sm font-bold text-white mb-8 border border-gray-600 shadow-lg">
+                            Input Token Embeddings</div>
+                        <div class="h-8 w-0.5 bg-gradient-to-b from-gray-600 to-liquid-500 mb-2"></div>
+
+                        <!-- Backbone Layer Loop -->
+                        <div
+                            class="border-2 border-dashed border-gray-700 bg-black/20 p-8 rounded-2xl relative w-full max-w-xl">
+                            <div
+                                class="absolute -top-3 left-6 bg-gray-800 px-3 py-1 rounded-full text-xs font-bold text-gray-300 border border-gray-600 shadow-sm">
+                                Repeated N Times (Most Layers)</div>
+
+                            <!-- Gated Short Conv Block -->
+                            <div class="bg-liquid-900/80 border border-liquid-500 p-6 rounded-xl mb-6 cursor-pointer node-hover transition-all relative overflow-hidden group"
+                                onmouseenter="showDetail('Gated Short Convolution', 'The workhorse of LFM2. It replaces standard attention in most layers. It uses a depthwise short convolution with input-dependent gating. This is extremely fast on CPUs and memory efficient (O(L) complexity) compared to Attention (O(L²)).')"
+                                onmouseleave="resetDetail()">
+                                <div
+                                    class="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-20 transition-opacity">
+                                    <span class="material-symbols-outlined text-6xl">graphic_eq</span>
+                                </div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="font-bold text-lg text-liquid-100">Gated Short Conv</span>
+                                    <span class="material-symbols-outlined text-liquid-300">graphic_eq</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-liquid-950 rounded-full overflow-hidden mb-2">
+                                    <div class="h-full bg-liquid-400 w-3/4 animate-pulse"></div>
+                                </div>
+                                <div class="text-xs text-liquid-300 font-mono">Local Context Mixing • O(L) Complexity
+                                </div>
+                            </div>
+
+                            <!-- SwiGLU MLP -->
+                            <div class="bg-gray-800/80 border border-gray-600 p-6 rounded-xl cursor-pointer node-hover transition-all group"
+                                onmouseenter="showDetail('SwiGLU MLP', 'Standard position-wise Feed Forward Network. It processes information independently at each position to increase model capacity. In the 8B model, this is replaced by a Mixture-of-Experts (MoE) block.')"
+                                onmouseleave="resetDetail()">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <span class="font-bold text-lg text-gray-200 block">SwiGLU MLP</span>
+                                        <span class="text-xs text-gray-500 font-mono mt-1">Point-wise Processing</span>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined text-gray-400 group-hover:text-white transition-colors">calculate</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="h-8 w-0.5 bg-gradient-to-b from-gray-700 to-accent-cyan mb-2 mt-2"></div>
+
+                        <!-- Attention Layer (Sparse) -->
+                        <div class="bg-accent-cyan/10 border border-accent-cyan/40 p-6 rounded-xl w-full max-w-xl cursor-pointer node-hover transition-all group"
+                            onmouseenter="showDetail('Grouped Query Attention (GQA)', 'Placed sparsely (only a few layers). GQA handles long-range dependencies and retrieval tasks that convolutions miss. By grouping queries, it significantly reduces the KV-cache size, lowering memory usage.')"
+                            onmouseleave="resetDetail()">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-lg text-cyan-100">Sparse GQA Layer</span>
+                                <span class="material-symbols-outlined text-cyan-300">hub</span>
+                            </div>
+                            <div class="flex gap-2 mt-3">
+                                <div class="h-1 flex-1 bg-cyan-500/30 rounded-full"></div>
+                                <div class="h-1 flex-1 bg-cyan-500/30 rounded-full"></div>
+                                <div class="h-1 flex-1 bg-cyan-500 rounded-full shadow-[0_0_10px_rgba(34,211,238,0.5)]">
+                                </div>
+                                <div class="h-1 flex-1 bg-cyan-500/30 rounded-full"></div>
+                            </div>
+                            <div class="text-xs text-cyan-300 mt-2 font-mono text-right">Global Context Retrieval</div>
+                        </div>
+
+                        <div class="h-8 w-0.5 bg-gradient-to-b from-accent-cyan to-liquid-600 mb-2 mt-2"></div>
+
+                        <!-- Output -->
+                        <div
+                            class="w-48 h-12 bg-liquid-600 rounded-lg flex items-center justify-center text-sm text-white font-bold border border-liquid-400 shadow-[0_0_30px_rgba(124,58,237,0.4)] animate-pulse-slow">
+                            Next Token</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-white/5">
+
+        <!-- SECTION: PERFORMANCE -->
+        <section id="performance" class="scroll-mt-32">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-8">
+                <div>
+                    <div
+                        class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-green-400 uppercase bg-green-900/30 rounded-full border border-green-800">
+                        Benchmarks</div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Performance vs. Efficiency</h2>
+                </div>
+                <!-- Controls -->
+                <div class="flex gap-2 bg-white/5 p-1 rounded-full border border-white/10 mt-4 md:mt-0">
+                    <button
+                        class="px-5 py-2 rounded-full bg-liquid-600 text-white text-sm font-bold shadow-lg transition-all"
+                        id="btn-speed" onclick="updateChart('speed')">Speed (Tokens/s)</button>
+                    <button
+                        class="px-5 py-2 rounded-full text-gray-400 text-sm font-medium hover:text-white transition-all"
+                        id="btn-quality" onclick="updateChart('quality')">Quality (GSM8K)</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Chart Area -->
+                <div class="lg:col-span-2 glass-panel p-6 rounded-2xl border border-white/10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-30 pointer-events-none">
+                        <span class="material-symbols-outlined text-8xl text-liquid-900">bar_chart</span>
+                    </div>
+                    <canvas height="546" id="benchmarkChart" width="771"
+                        style="display: block; box-sizing: border-box; height: 546px; width: 771px;"></canvas>
+                </div>
+
+                <!-- Analysis Panel -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col justify-center bg-gradient-to-br from-liquid-900/40 to-transparent">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-yellow-400">lightbulb</span>
+                        Key Takeaways
+                    </h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-green-400 text-sm">bolt</span>
+                            </div>
+                            <div>
+                                <strong class="text-white block mb-1">Throughput King</strong>
+                                <span class="text-sm text-gray-400">LFM2-1.2B is ~2.3x faster in prefill than Granite-1B
+                                    and Qwen-1.7B on mobile CPUs.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-accent-cyan/20 flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-accent-cyan text-sm">calculate</span>
+                            </div>
+                            <div>
+                                <strong class="text-white block mb-1">Math Wizard</strong>
+                                <span class="text-sm text-gray-400">LFM2-2.6B achieves 82.41% on GSM8K, beating
+                                    Llama-3.2-3B (75.2%) despite being smaller.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-liquid-500/20 flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-liquid-400 text-sm">memory</span>
+                            </div>
+                            <div>
+                                <strong class="text-white block mb-1">Memory Efficient</strong>
+                                <span class="text-sm text-gray-400">The hybrid architecture uses significantly less RAM
+                                    for KV-cache, enabling 32K context on edge devices.</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-8 pt-6 border-t border-white/10">
+                        <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-2 font-bold">Hardware Context
+                        </div>
+                        <p class="text-xs font-mono text-cyan-300 bg-cyan-900/20 p-2 rounded border border-cyan-900/50">
+                            Measured on: Samsung Galaxy S25 (Snapdragon 8 Elite) &amp; AMD Ryzen AI 9 HX 370.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-white/5">
+
+        <!-- SECTION: MODEL FAMILY -->
+        <section id="family" class="scroll-mt-32">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">The LFM2 Portfolio</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">A comprehensive suite from 350M to 8B parameters, covering
+                    Text, Vision, Audio, and Retrieval.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dense Models -->
+                <div
+                    class="glass-panel p-0 rounded-3xl overflow-hidden group hover:border-liquid-500 transition-all duration-300">
+                    <div
+                        class="h-48 bg-gradient-to-br from-liquid-900 to-black p-6 flex items-end relative overflow-hidden">
+                        <img alt="Dense Models"
+                            class="absolute inset-0 opacity-50 group-hover:scale-110 group-hover:opacity-70 transition-all duration-700 object-cover w-full h-full mix-blend-screen"
+                            src="assets/dense_model.png">
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-bold text-white mb-1">Dense Models</h3>
+                            <span class="text-sm text-liquid-200 font-mono uppercase tracking-widest">The Core
+                                Backbone</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-white">350M</span>
+                            <span
+                                class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-white">700M</span>
+                            <span
+                                class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-white">1.2B</span>
+                            <span
+                                class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-white">2.6B</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-6 leading-relaxed">The standard bearers. Optimized for pure
+                            text generation and reasoning on limited hardware. Features full 32K Context support.</p>
+                        <div class="flex items-center text-xs text-liquid-400 font-mono pt-4 border-t border-white/5">
+                            <span class="material-symbols-outlined text-sm mr-2">smartphone</span> Ideal for Phones
+                            &amp; Laptops
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MoE -->
+                <div
+                    class="glass-panel p-0 rounded-3xl overflow-hidden group hover:border-accent-cyan transition-all duration-300 transform md:-translate-y-4">
+                    <div
+                        class="h-48 bg-gradient-to-br from-accent-cyan/20 to-black p-6 flex items-end relative overflow-hidden">
+                        <img alt="MoE Model"
+                            class="absolute inset-0 opacity-50 group-hover:scale-110 group-hover:opacity-70 transition-all duration-700 object-cover w-full h-full mix-blend-screen"
+                            src="assets/moe_model.png">
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-bold text-white mb-1">LFM2-8B-A1B</h3>
+                            <span class="text-sm text-cyan-200 font-mono uppercase tracking-widest">Mixture of
+                                Experts</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 bg-cyan-900/40 border border-cyan-500/30 rounded-full text-xs font-bold text-cyan-200">8.3B
+                                Total</span>
+                            <span
+                                class="px-3 py-1 bg-green-900/40 border border-green-500/30 rounded-full text-xs font-bold text-green-200">1.5B
+                                Active</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-6 leading-relaxed">Frontier quality at edge cost. Uses sparse
+                            MoE routing to activate only ~1.5B params per token while retaining the knowledge base of an
+                            8B model.</p>
+                        <div class="flex items-center text-xs text-cyan-400 font-mono pt-4 border-t border-white/5">
+                            <span class="material-symbols-outlined text-sm mr-2">precision_manufacturing</span> High
+                            Performance Edge
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vision -->
+                <div
+                    class="glass-panel p-0 rounded-3xl overflow-hidden group hover:border-accent-pink transition-all duration-300">
+                    <div
+                        class="h-48 bg-gradient-to-br from-accent-pink/20 to-black p-6 flex items-end relative overflow-hidden">
+                        <img alt="Vision Model"
+                            class="absolute inset-0 opacity-50 group-hover:scale-110 group-hover:opacity-70 transition-all duration-700 object-cover w-full h-full mix-blend-screen"
+                            src="assets/vision_model.png">
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-bold text-white mb-1">LFM2-VL</h3>
+                            <span
+                                class="text-sm text-pink-200 font-mono uppercase tracking-widest">Vision-Language</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-white">450M</span>
+                            <span
+                                class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-white">1.6B</span>
+                            <span
+                                class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-white">3B</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-6 leading-relaxed">Combines LFM2 backbone with SigLIP2 vision
+                            encoder. Dynamic tiling allows variable resolution processing for maximum efficiency.</p>
+                        <div class="flex items-center text-xs text-pink-400 font-mono pt-4 border-t border-white/5">
+                            <span class="material-symbols-outlined text-sm mr-2">image</span> Multi-resolution Support
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audio -->
+                <div
+                    class="glass-panel p-0 rounded-3xl overflow-hidden group hover:border-yellow-500 transition-all duration-300">
+                    <div
+                        class="h-48 bg-gradient-to-br from-yellow-600/20 to-black p-6 flex items-end relative overflow-hidden">
+                        <img alt="Audio Model"
+                            class="absolute inset-0 opacity-50 group-hover:scale-110 group-hover:opacity-70 transition-all duration-700 object-cover w-full h-full mix-blend-screen"
+                            src="assets/audio_model.png">
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-bold text-white mb-1">LFM2-Audio</h3>
+                            <span
+                                class="text-sm text-yellow-200 font-mono uppercase tracking-widest">Speech-to-Speech</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 bg-yellow-900/40 border border-yellow-500/30 rounded-full text-xs font-bold text-yellow-200">1.5B</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-6 leading-relaxed">Separates continuous input from discrete
+                            output codes. Enables real-time, low-latency speech interaction directly on edge devices.
+                        </p>
+                        <div class="flex items-center text-xs text-yellow-500 font-mono pt-4 border-t border-white/5">
+                            <span class="material-symbols-outlined text-sm mr-2">mic</span> Real-time Interaction
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Retrieval -->
+                <div
+                    class="glass-panel p-0 rounded-3xl overflow-hidden group hover:border-blue-500 transition-all duration-300 transform md:-translate-y-4">
+                    <div
+                        class="h-48 bg-gradient-to-br from-blue-600/20 to-black p-6 flex items-end relative overflow-hidden">
+                        <img alt="Retrieval Model"
+                            class="absolute inset-0 opacity-50 group-hover:scale-110 group-hover:opacity-70 transition-all duration-700 object-cover w-full h-full mix-blend-screen"
+                            src="assets/retrieval_model.png">
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-bold text-white mb-1">ColBERT</h3>
+                            <span
+                                class="text-sm text-blue-200 font-mono uppercase tracking-widest">Retrieval-350M</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 bg-blue-900/40 border border-blue-500/30 rounded-full text-xs font-bold text-blue-200">350M</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-6 leading-relaxed">Late-interaction retriever. Efficiently
+                            encodes queries and documents for high-performance semantic search (RAG) at a fraction of
+                            the cost.</p>
+                        <div class="flex items-center text-xs text-blue-400 font-mono pt-4 border-t border-white/5">
+                            <span class="material-symbols-outlined text-sm mr-2">search</span> Efficient RAG
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-white/5">
+
+        <!-- SECTION: TRAINING -->
+        <section id="training" class="scroll-mt-32">
+            <h2 class="text-3xl font-bold text-white mb-12">The Training Pipeline</h2>
+
+            <!-- Pipeline Visual -->
+            <div class="relative">
+                <div
+                    class="absolute left-4 lg:left-1/2 top-4 bottom-0 w-0.5 bg-gradient-to-b from-liquid-600 via-liquid-900 to-transparent lg:-translate-x-1/2">
+                </div>
+
+                <!-- Stage 1 -->
+                <div
+                    class="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-16 relative z-10 group">
+                    <div class="w-full lg:w-5/12 text-left lg:text-right pl-12 lg:pl-0 lg:pr-12">
+                        <h3 class="text-2xl font-bold text-white mb-1">1. Pre-Training</h3>
+                        <p class="text-gray-400 text-sm">10-12T Tokens • 20% Multilingual • Hardware-aware</p>
+                    </div>
+
+                    <div
+                        class="absolute left-0 lg:left-1/2 w-9 h-9 bg-liquid-600 rounded-full flex items-center justify-center border-4 border-liquid-950 shadow-[0_0_20px_rgba(124,58,237,0.5)] lg:-translate-x-1/2 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-white text-sm">school</span>
+                    </div>
+
+                    <div class="w-full lg:w-5/12 pl-12 mt-4 lg:mt-0">
+                        <div
+                            class="glass-panel p-6 rounded-2xl border border-liquid-500/30 hover:border-liquid-500 transition-colors">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="material-symbols-outlined text-accent-pink">science</span>
+                                <h4 class="font-bold text-white">Innovation: Decoupled Top-K Distillation</h4>
+                            </div>
+                            <p class="text-sm text-gray-400 leading-relaxed mb-3">
+                                Distilling from a larger teacher usually suffers from "support mismatch".
+                                LFM2 uses a novel loss function that separates total probability mass from relative
+                                probabilities.
+                            </p>
+                            <div
+                                class="bg-black/40 p-3 rounded-lg text-[10px] font-mono text-gray-400 border border-white/5">
+                                Loss = KL_Binary(Mass) + Mass * KL_Tempered(TopK_Distribution)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 2 -->
+                <div
+                    class="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-16 relative z-10 group">
+                    <div
+                        class="w-full lg:w-5/12 pl-12 mt-4 lg:mt-0 order-3 lg:order-1 text-left lg:text-right lg:pr-12">
+                        <div class="glass-panel p-6 rounded-2xl hover:border-accent-cyan transition-colors">
+                            <h4 class="font-bold text-white mb-2">Mid-Training (Long Context)</h4>
+                            <p class="text-sm text-gray-400">
+                                Annealing on 1T high-quality tokens with <strong>32K context length</strong>. This phase
+                                specifically targets long-range dependencies and reasoning.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute left-0 lg:left-1/2 w-9 h-9 bg-accent-cyan rounded-full flex items-center justify-center border-4 border-liquid-950 shadow-[0_0_20px_rgba(34,211,238,0.5)] lg:-translate-x-1/2 order-1 lg:order-2 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-black font-bold text-sm">timer</span>
+                    </div>
+
+                    <div class="w-full lg:w-5/12 pl-12 order-2 lg:order-3">
+                        <h3 class="text-2xl font-bold text-white mb-1">2. Context Extension</h3>
+                        <p class="text-gray-400 text-sm">Ramping up to 32,768 tokens.</p>
+                    </div>
+                </div>
+
+                <!-- Stage 3 -->
+                <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between relative z-10 group">
+                    <div class="w-full lg:w-5/12 text-left lg:text-right pl-12 lg:pl-0 lg:pr-12">
+                        <h3 class="text-2xl font-bold text-white mb-1">3. Post-Training</h3>
+                        <p class="text-gray-400 text-sm">Refining for Chat and Instructions.</p>
+                    </div>
+
+                    <div
+                        class="absolute left-0 lg:left-1/2 w-9 h-9 bg-white rounded-full flex items-center justify-center border-4 border-liquid-950 shadow-lg lg:-translate-x-1/2 group-hover:scale-110 transition-transform">
+                        <span
+                            class="material-symbols-outlined text-black text-sm js-replaced-missing-icon">radio_button_unchecked</span>
+                    </div>
+
+                    <div class="w-full lg:w-5/12 pl-12 mt-4 lg:mt-0">
+                        <div class="glass-panel p-6 rounded-2xl hover:bg-white/5 transition-colors">
+                            <h4 class="font-bold text-white mb-3">3-Stage Alignment</h4>
+                            <ul class="text-sm text-gray-400 space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+                                    <span><strong>SFT:</strong> Supervised Fine-Tuning on 5M+ samples.</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+                                    <span><strong>Alignment:</strong> Length-Normalized Direct Preference Optimization
+                                        (DPO).</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+                                    <span><strong>Merging:</strong> Averaging weights of best checkpoints.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-black/50 backdrop-blur-xl py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center gap-2 mb-4">
+                <span class="material-symbols-outlined text-liquid-600">water_drop</span>
+                <span class="font-bold text-lg text-white">Liquid AI</span>
+            </div>
+            <p class="text-gray-500 text-sm mb-6">Based on "Liquid LFM2 Technical Report" (arXiv:2511.23404v1)</p>
+            <div
+                class="inline-flex gap-6 text-xs font-mono text-liquid-400 bg-white/5 px-6 py-3 rounded-full border border-white/5">
+                <span>Dec 2025 Release</span>
+                <span class="text-gray-600">|</span>
+                <span>350M - 8B Params</span>
+                <span class="text-gray-600">|</span>
+                <span>Apache 2.0 / Open Weights</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive Diagram Logic
+        function showDetail(title, text) {
+            document.getElementById('detail-title').innerText = title;
+            document.getElementById('detail-text').innerText = text;
+            const panel = document.getElementById('arch-details');
+            panel.classList.remove('border-liquid-500');
+            panel.classList.add('border-accent-cyan', 'bg-liquid-900/40');
+        }
+
+        function resetDetail() {
+            document.getElementById('detail-title').innerText = "Hover over the diagram";
+            document.getElementById('detail-text').innerText = "Interact with the visual blocks on the right to understand how LFM2 processes data.";
+            const panel = document.getElementById('arch-details');
+            panel.classList.remove('border-accent-cyan', 'bg-liquid-900/40');
+            panel.classList.add('border-liquid-500');
+        }
+
+        // Navigation Active State Logic
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active', 'text-white');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active', 'text-white');
+                }
+            });
+        });
+
+        // Chart.js Logic
+        let myChart = null;
+
+        const speedData = {
+            labels: ['LFM2-1.2B', 'Granite-1B', 'Qwen-1.7B', 'Llama-3.2-1B'],
+            datasets: [{
+                label: 'Prefill Throughput (Tokens/s) - S25 Phone',
+                data: [335, 79, 98, 130],
+                backgroundColor: ['#7c3aed', 'rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.1)'],
+                borderColor: ['#7c3aed', 'rgba(255, 255, 255, 0.2)', 'rgba(255, 255, 255, 0.2)', 'rgba(255, 255, 255, 0.2)'],
+                borderWidth: 1,
+                borderRadius: 8,
+                barThickness: 40
+            }]
+        };
+
+        const qualityData = {
+            labels: ['LFM2-2.6B', 'Llama-3.2-3B', 'Gemma-3-4B', 'Qwen3-4B'],
+            datasets: [{
+                label: 'GSM8K Accuracy (%)',
+                data: [82.41, 75.21, 89.92, 68.46],
+                backgroundColor: ['#06b6d4', 'rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.1)'],
+                borderColor: ['#06b6d4', 'rgba(255, 255, 255, 0.2)', 'rgba(255, 255, 255, 0.2)', 'rgba(255, 255, 255, 0.2)'],
+                borderWidth: 1,
+                borderRadius: 8,
+                barThickness: 40
+            }]
+        };
+
+        function updateChart(type) {
+            const btnSpeed = document.getElementById('btn-speed');
+            const btnQuality = document.getElementById('btn-quality');
+
+            if (type === 'speed') {
+                btnSpeed.classList.add('bg-liquid-600', 'text-white', 'shadow-lg');
+                btnSpeed.classList.remove('text-gray-400');
+                btnQuality.classList.remove('bg-liquid-600', 'text-white', 'shadow-lg');
+                btnQuality.classList.add('text-gray-400');
+
+                myChart.data = speedData;
+                myChart.options.plugins.title.text = "On-Device Speed Comparison (Higher is Better)";
+            } else {
+                btnQuality.classList.add('bg-liquid-600', 'text-white', 'shadow-lg');
+                btnQuality.classList.remove('text-gray-400');
+                btnSpeed.classList.remove('bg-liquid-600', 'text-white', 'shadow-lg');
+                btnSpeed.classList.add('text-gray-400');
+
+                myChart.data = qualityData;
+                myChart.options.plugins.title.text = "Mathematical Reasoning Accuracy (Higher is Better)";
+            }
+            myChart.update();
+        }
+
+        // Initialize Chart immediately
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('benchmarkChart').getContext('2d');
+
+            myChart = new Chart(ctx, {
+                type: 'bar',
+                data: speedData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(0,0,0,0.8)',
+                            titleFont: { family: 'Inter', size: 14 },
+                            bodyFont: { family: 'JetBrains Mono', size: 13 },
+                            padding: 12,
+                            cornerRadius: 8,
+                            displayColors: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'On-Device Speed Comparison (Higher is Better)',
+                            color: '#fff',
+                            font: { size: 16, family: 'Inter', weight: '600' },
+                            padding: { bottom: 20 }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#94a3b8', font: { family: 'JetBrains Mono' } }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#e2e8f0', font: { family: 'Inter', weight: '600' } }
+                        }
+                    },
+                    animation: {
+                        duration: 1500,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
